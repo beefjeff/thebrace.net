@@ -1,5 +1,5 @@
-User;
- App;
+<?php
+namespace App;
 
 use Illuminate\Notifications\Notifiable;
 use Illuminate\Foundation\Auth\User as Authenticatable;
@@ -24,11 +24,15 @@ class User extends Authenticatable
      */
     protected $hidden = [
         'password', 'remember_token'
-];
+    ];
 
-    public function isSubscribed(){
-		$name = 'Jane Doe';
+	public function name()
+	{
+		return $this->name;
     }
-	
-    
+    public function test(){
+		return null;
+	}
+
+
 }
