@@ -12,8 +12,13 @@
 */
 
 Route::get('/', function () {
-    return view('welcome');
+	return redirect('resume');
 });
+Route::get('blog', function(){
+	return view('blog');
+})->name('blog');
+Route::get('resume', function(){
+	return view('resume');
+})->name('resume');
 Auth::routes();
-
 Route::get('/home', 'HomeController@index')->name('home');
