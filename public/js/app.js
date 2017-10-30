@@ -46530,7 +46530,6 @@ module.exports = function normalizeComponent (
 
 var routes = [{
 	path: '/',
-
 	component: __webpack_require__(50)
 }];
 /* harmony default export */ __webpack_exports__["a"] = (new __WEBPACK_IMPORTED_MODULE_0_vue_router__["a" /* default */]({
