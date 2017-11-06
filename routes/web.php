@@ -20,5 +20,6 @@ Route::get('blog', function(){
 Route::get('resume', function(){
 	return view('resume');
 })->name('resume');
+Route::resource('messages', 'MessageController');
 Auth::routes();
 Route::get('/home', 'HomeController@index')->name('home');

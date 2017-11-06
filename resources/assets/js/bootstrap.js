@@ -1,10 +1,13 @@
 import vue from "vue";
+import BootstrapVue from 'bootstrap-vue';
 import VueRouter from 'vue-router';
 import lodash from "lodash";
 
 window.Vue = vue;
 window._ = lodash;
 Vue.use(VueRouter);
+Vue.use(BootstrapVue);
+window.events = new Vue();
 
 try {
 	window.$ = window.jQuery = require('jquery');

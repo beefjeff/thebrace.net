@@ -34,11 +34,7 @@
 		</ul>
 		<ul class="navbar-nav">
 
-			@guest
-				<li class="nav-item">
-					<a class="nav-link" href="{{ route('login') }}">Login</a>
-				</li>
-			@else
+			@auth
 				<li class="dropdown nav-item">
 					<a href="#" class="nav-link" data-toggle="dropdown" role="button" aria-expanded="false">
 						{{ Auth::user()->name }} <span class="caret"></span>
@@ -55,11 +51,11 @@
 						</li>
 					</ul>
 				</li>
-			@endguest
+			@endauth
 		</ul>
 	</div>
 </nav>
 
-<div style="height:60px">
+{{--<div style="height:56px">--}}
 	{{--banner spacing on page--}}
-</div>
+{{--</div>--}}

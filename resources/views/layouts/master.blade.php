@@ -18,10 +18,25 @@
 	<div id="app">
 
 		@include('partials.nav')
-		@yield('content')
+		<div class="content">
+			@yield('content')
+		</div>
+		@include('partials.footer')
 	</div>
 
 </body>
-
 <script src="{{ asset('js/app.js') }}"></script>
+{{--<script>--}}
+	{{--$(document).ready(function(){--}}
+		{{--var windowHeight = $(window).height();--}}
+		{{--var footerPos = $('footer').position()['top'];--}}
+		{{--var footer = $(".footer");--}}
+		{{--if(windowHeight > footerPos) {--}}
+			{{--footer.css('position', 'absolute');--}}
+			{{--footer.css('bottom', 0);--}}
+		{{--}else {--}}
+			{{--footer.css('position', 'relative');--}}
+		{{--}--}}
+	{{--});--}}
+{{--</script>--}}
 </html>

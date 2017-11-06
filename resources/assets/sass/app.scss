@@ -2,15 +2,99 @@
 @import url("https://fonts.googleapis.com/css?family=Raleway:300,400,600");
 
 // Bootstrap
-@import "../../../node_modules/bootstrap/scss/bootstrap";
+@import "~bootstrap/scss/bootstrap.scss";
+@import "~bootstrap-vue/dist/bootstrap-vue.css";
+html, body{
+  height: 100vh;
+}
 
-html, body {
+body {
   background-color: #fff;
   color: #636b6f;
   font-family: 'Raleway', sans-serif;
   font-weight: 400;
-  height: 100vh;
-  margin: 0;
+}
+$footerHeight: 30px;
+$navHeight: 56px;
+.content {
+
+  padding: $navHeight 0 20px;
+  min-height: calc(100vh - 24px);
+
+
+
+}
+.hide-scrollbar{
+
+  -ms-overflow-style: none;  // IE 10+
+  overflow: -moz-scrollbars-none;  // Firefox
+}
+.hide-scrollbar::-webkit-scrollbar {
+  display: none;  // Safari and Chrome
+}
+#resume{
+  padding-top: 1rem;
+  padding-left: 290px;
+  @media (max-width: 768px) {
+
+    padding:0;
+    margin:0;
+    #resume-main{
+      padding:2rem;
+    }
+  }
+
+}
+h2{
+  @extend .thead-dark;
+}
+#resume-sidebar {
+  @extend .hide-scrollbar;
+  @media (max-width: 768px) {
+    margin-bottom:1rem;
+    padding-top: 0;
+    min-width: 100%;
+    max-width: none;
+    position: relative;
+  }
+  top: 0;
+  left: 0;
+  padding: 65px 10px 50px;
+  bottom: 0;
+  font-size: smaller;
+  position: fixed;
+  overflow-y: scroll;
+  max-width: 250px;
+  //min-width: 200px;
+  height: 100%;
+  margin:0;
+  #profile-image {
+    text-align:center;
+    display:block;
+    width: 180px;
+    margin: 5px auto;
+
+  }
+  .btn {
+    margin-top: 5px;
+    width: 100%;
+  }
+}
+
+
+.footer {
+  @extend .nav ;
+  a{
+    @extend .nav-link;
+    padding:0;
+
+  }
+  @extend .bg-dark;
+  @extend .text-center;
+  //position: relative;
+  bottom: 0;
+  width: 100%;
+  //height: 25px; /* Set the fixed height of the footer here */
 }
 
 .full-height {
@@ -33,24 +117,11 @@ html, body {
   top: 18px;
 }
 
-.content {
-  text-align: center;
+.row{
+  overflow-x: hidden;
 }
-
-.title {
-  font-size: 84px;
-}
-
-.links > a {
-  color: #636b6f;
-  padding: 0 25px;
-  font-size: 12px;
-  font-weight: 600;
-  letter-spacing: .1rem;
-  text-decoration: none;
-  text-transform: uppercase;
-}
-
-.m-b-md {
-  margin-bottom: 30px;
-}
+//* {
+//  background: #000 !important;
+//  color: #0f0 !important;
+//  outline: solid #f00 1px !important;
+//}
