@@ -2,6 +2,6 @@
 
 @section('content')
     <div class="p-5">
-		here are some of my posts.
-	</div>
+        I haven't got much to say yet..
+    </div>
 @endsection
