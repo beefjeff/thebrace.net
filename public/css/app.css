@@ -9797,6 +9797,10 @@ body {
   height: 100vh;
 }
 
+.modal-content {
+  padding: 10px;
+}
+
 body {
   background-color: #fff;
   color: #636b6f;
@@ -9836,6 +9840,10 @@ body {
   }
 }
 
+#resume .col-date {
+  padding-right: 15px;
+}
+
 #resume-sidebar {
   top: 0;
   left: 0;
@@ -9864,6 +9872,7 @@ body {
   display: block;
   width: 180px;
   margin: 5px auto;
+  border-radius: 50%;
 }
 
 #resume-sidebar .btn {

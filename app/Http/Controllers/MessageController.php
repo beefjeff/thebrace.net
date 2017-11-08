@@ -42,7 +42,7 @@ class MessageController extends Controller
     public function store(Request $request)
     {
 		flash('Your message was saved');
-		return redirect('resume');
+//		return redirect('resume');
     }
 
     /**

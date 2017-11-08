@@ -1,22 +1,10 @@
 @extends('layouts.master')
 
 @section('content')
+	<modal name="message-modal">
+		my modal
+	</modal>
 	<div class=" row" id="resume">
-		<modal handle="messageForm"  :footer="false">
-			<template slot="title">Send me a message</template>
-			<form action="{{route('messages.store')}}" method="post">
-				{{ csrf_field() }}
-				<label for="message-name">Name</label>
-				<input class="form-control" id="message-name" required>
-				<label for="message-email">Email</label>
-				<input id="message-email" class="form-control" type="email" required>
-				<label for="message-message">Message</label>
-				<textarea id="message-message" class="form-control"></textarea><hr>
-				<button type="submit" class="btn btn-primary" >Send</button>
-				<button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-
-			</form>
-		</modal>
 		<div class="bg-dark row" id="resume-sidebar">
 			<div class="col">
 				<img id="profile-image"  src="{{ asset('images/profile.jpg') }}"  alt="Ethan Brace">
@@ -36,7 +24,8 @@
 					</strong>
 
 				</div>
-				<button class="btn btn-primary" data-toggle="modal" data-target="#messageForm">Message Me</button>
+				{{--<show-modal name="message-modal">Message Me</show-modal>--}}
+				{{--<button class="btn btn-primary" data-toggle="modal" data-target="#messageForm">Message Me</button>--}}
 			</div>
 		</div>
 		<div id="resume-main">
@@ -103,7 +92,7 @@
 			<h2>Education</h2>
 			<hr>
 			<div class="row">
-				<div class="col-2 pr-2">2018</div>
+				<div class="col-2 col-date">2018</div>
 				<div class="col">
 					<h3>Associate of Arts in Programming</h3>
 					<h5>Grand Rapids Community College - Grand Rapids MI</h5>
@@ -113,7 +102,7 @@
 			<h2>Work History</h2>
 			<hr>
 			<div class="row">
-				<div class="col-2 pr-2">01/2017 to Current</div>
+				<div class="col-2 col-date">01/2017 <br>-to-<br> Current</div>
 				<div class="col">
 					<h3>Software Developer</h3>
 					<h5>Web Development Contractor</h5>
@@ -128,10 +117,10 @@
 				</div>
 			</div>
 			<div class="row">
-				<div class="col-2 pr-2">04/2013 to Current</div>
+				<div class="col-2 col-date">04/2013 <br>-to-<br> Current</div>
 				<div class="col">
 					<h3>Window Cleaning Business</h3>
-					<h5>Contract/Self Employed</h5>
+					<h5>Independent Contractor/Self Employed</h5>
 					<ul>
 						<li>Resolved customer issues in a clear and straightforward manner</li>
 						<li>Demonstrated professionalism and courtesy with customers at all times</li>
@@ -141,7 +130,11 @@
 					</ul>
 				</div>
 			</div>
-
 		</div>
+		{{--<script>--}}
+{{--//			new Vue({--}}
+{{--//				el: ''--}}
+{{--//			});--}}
+		{{--</script>--}}
 	</div>
 @endsection

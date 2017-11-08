@@ -1,13 +1,21 @@
 // Fonts
 @import url("https://fonts.googleapis.com/css?family=Raleway:300,400,600");
-
 // Bootstrap
 @import "~bootstrap/scss/bootstrap.scss";
 @import "~bootstrap-vue/dist/bootstrap-vue.css";
+
+
+// Bulma
+//@import "~bulma";
+
+
+
 html, body{
   height: 100vh;
 }
-
+.modal-content{
+  padding: 10px;
+}
 body {
   background-color: #fff;
   color: #636b6f;
@@ -43,6 +51,9 @@ $navHeight: 56px;
       padding:2rem;
     }
   }
+  .col-date{
+    padding-right:15px;
+  }
 
 }
 h2{
@@ -73,7 +84,9 @@ h2{
     display:block;
     width: 180px;
     margin: 5px auto;
-
+    -webkit-border-radius: 50%;
+    -moz-border-radius: 50%;
+    border-radius: 50%;
   }
   .btn {
     margin-top: 5px;

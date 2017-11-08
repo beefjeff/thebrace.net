@@ -1,7 +1,6 @@
 require('./bootstrap');
 import router from './routes';
 
-
 /**
  * Next, we will create a fresh Vue application instance and attach it to
  * the page. Then, you may begin adding components to this application
@@ -10,22 +9,22 @@ import router from './routes';
 Vue.component('modal', require('./components/modal.vue'));
 Vue.component('sidebar', require('./components/sidebar.vue'));
 Vue.component('flash', require('./components/Flash.vue'));
+Vue.component('show-modal', require('./components/ShowModal.vue'));
+
 
 new Vue({
 	el: '#app',
 	router,
-	methods:{
-		showMessageModal: function(){
-			console.log('hello world');
+	methods: {
+		sendMessage: function () {
+			console.log(this.$refs);
 		}
+	},
+	data:{
+
 	}
 });
 
-window.flash = function () {
+window.flash = function (data) {
 	window.events.$emit('flash', data);
 };
-
-window.modal = function () {
-	window.events.$emit('modal', data);
-};
-

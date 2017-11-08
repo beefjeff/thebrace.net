@@ -16,7 +16,7 @@
 
                 <div class="modal-footer" v-if="showFooter">
                     <slot name="footer">
-                        <button type="button" class="btn btn-secondary" data-dismiss="this.handle">Ok</button>
+                        <button type="button" class="btn btn-secondary" data-dismiss="modal">Ok</button>
                     </slot>
                 </div>
             </div>
@@ -36,23 +36,29 @@
             button: {
 				default: true
             },
-            handle:{}
+            name:{}
         },
         data: function(){
 			return {
 				showFooter: this.footer,
                 showHeader: this.header,
 				showButton: this.button,
-                id: this.handle
+                id: this.name
 
 			};
         },
-		created() {
-        },
+		created() {        },
         methods:{
         	send: function(){
 				console.log('hello world');
 				console.log(this.handle);
+            },
+            show(){
+				$('#'+this.id).modal('show');
+
+            },
+            hide(){
+				$('#'+this.id).modal('hide');
             }
         }
 	};

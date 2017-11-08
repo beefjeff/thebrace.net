@@ -16,7 +16,7 @@
 </head>
 <body>
 	<div id="app">
-
+		<flash message="{{ session('flash') }}"></flash>
 		@include('partials.nav')
 		<div class="content">
 			@yield('content')
@@ -24,19 +24,6 @@
 		@include('partials.footer')
 	</div>
 
+	<script src="{{ asset('js/app.js') }}"></script>
 </body>
-<script src="{{ asset('js/app.js') }}"></script>
-{{--<script>--}}
-	{{--$(document).ready(function(){--}}
-		{{--var windowHeight = $(window).height();--}}
-		{{--var footerPos = $('footer').position()['top'];--}}
-		{{--var footer = $(".footer");--}}
-		{{--if(windowHeight > footerPos) {--}}
-			{{--footer.css('position', 'absolute');--}}
-			{{--footer.css('bottom', 0);--}}
-		{{--}else {--}}
-			{{--footer.css('position', 'relative');--}}
-		{{--}--}}
-	{{--});--}}
-{{--</script>--}}
 </html>

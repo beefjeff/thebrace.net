@@ -2,9 +2,11 @@ import vue from "vue";
 import BootstrapVue from 'bootstrap-vue';
 import VueRouter from 'vue-router';
 import lodash from "lodash";
+import VeeValidate from 'vee-validate';
 
 window.Vue = vue;
 window._ = lodash;
+Vue.use(VeeValidate);
 Vue.use(VueRouter);
 Vue.use(BootstrapVue);
 window.events = new Vue();
