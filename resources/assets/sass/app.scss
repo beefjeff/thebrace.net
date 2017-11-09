@@ -68,6 +68,9 @@ h2{
     max-width: none;
     position: relative;
   }
+  @media (max-width: 259px){
+    padding-top: 40px;
+  }
   top: 0;
   left: 0;
   padding: 65px 10px 50px;
@@ -130,8 +133,19 @@ h2{
   top: 18px;
 }
 
-.row{
+.row, body{
   overflow-x: hidden;
+}
+
+input, textarea{
+  @extend .form-control;
+  border:1px solid;
+  margin-bottom: 5px;
+}
+.form-group{
+  input{
+    display: inline-flex;
+  }
 }
 //* {
 //  background: #000 !important;

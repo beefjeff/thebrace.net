@@ -3840,6 +3840,9 @@ new Vue({
 window.flash = function (data) {
 	window.events.$emit('flash', data);
 };
+window.close_modal = function (data) {
+	window.events.$emit('close_modal', data);
+};
 
 /***/ }),
 /* 14 */
@@ -66047,7 +66050,7 @@ exports = module.exports = __webpack_require__(4)(undefined);
 
 
 // module
-exports.push([module.i, "\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n/*#modal, #modal-dialog{*/\n    /*position: fixed;*/\n/*}*/\n/*#modal-dialog {*/\n    /*z-index: 1;*/\n\n/*}*/\n", ""]);
+exports.push([module.i, "\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n/*#modal, #modal-dialog{*/\n    /*position: fixed;*/\n/*}*/\n/*#modal-dialog {*/\n    /*z-index: 1;*/\n\n/*}*/\n", ""]);
 
 // exports
 
@@ -66120,28 +66123,39 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 
 /* harmony default export */ __webpack_exports__["default"] = ({
         props: {
-                header: {
-                        default: true
-                },
                 footer: {
                         default: true
                 },
-                button: {
-                        default: true
+                name: {},
+                submit: {
+                        default: false
                 },
-                name: {}
+                cancel: {
+                        default: false
+                }
         },
         data: function data() {
                 return {
                         showFooter: this.footer,
-                        showHeader: this.header,
-                        showButton: this.button,
                         id: this.name
-
                 };
         },
-        created: function created() {},
+        created: function created() {
+                if (this.$slots.title) {
 
+                        //				console.log(this.$slots.title);
+                } else {
+
+                                //				console.log('title not defined');
+                        }
+        },
+
+        computed: {
+                showHeader: function showHeader() {
+                        return !!this.$slots.title;
+                }
+
+        },
         methods: {
                 send: function send() {
                         console.log('hello world');
@@ -66169,7 +66183,7 @@ var render = function() {
     {
       staticClass: "modal fade",
       attrs: {
-        id: this.id,
+        id: _vm.id,
         tabindex: "-1",
         role: "dialog",
         "aria-labelledby": "modal-title",
@@ -66179,18 +66193,30 @@ var render = function() {
     [
       _c("div", { staticClass: "modal-dialog", attrs: { role: "document" } }, [
         _c("div", { staticClass: "modal-content" }, [
-          _c("div", { staticClass: "modal-header" }, [
-            _vm.showHeader
-              ? _c(
-                  "h5",
-                  { staticClass: "modal-title", attrs: { id: "modal-title" } },
-                  [_vm._t("title")],
-                  2
-                )
-              : _vm._e(),
-            _vm._v(" "),
-            _vm._m(0)
-          ]),
+          _c(
+            "div",
+            {
+              directives: [
+                {
+                  name: "show",
+                  rawName: "v-show",
+                  value: _vm.showHeader,
+                  expression: "showHeader"
+                }
+              ],
+              staticClass: "modal-header"
+            },
+            [
+              _c(
+                "h5",
+                { staticClass: "modal-title", attrs: { id: "modal-title" } },
+                [_vm._t("title")],
+                2
+              ),
+              _vm._v(" "),
+              _vm._m(0)
+            ]
+          ),
           _vm._v(" "),
           _c("div", { staticClass: "modal-body" }, [_vm._t("default")], 2),
           _vm._v(" "),
@@ -66538,7 +66564,7 @@ var render = function() {
       staticClass: "alert alert-success alert-flash",
       attrs: { role: "alert" }
     },
-    [_c("strong", [_vm._v("Success!")]), _vm._v(" " + _vm._s(_vm.body) + "\n")]
+    [_vm._v("\n    " + _vm._s(_vm.body) + "\n")]
   )
 }
 var staticRenderFns = []

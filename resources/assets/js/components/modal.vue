@@ -1,9 +1,9 @@
 <template>
-    <div class="modal fade" :id="this.id" tabindex="-1" role="dialog" aria-labelledby="modal-title" aria-hidden="true">
+    <div class="modal fade" :id="id" tabindex="-1" role="dialog" aria-labelledby="modal-title" aria-hidden="true">
         <div class="modal-dialog" role="document">
             <div class="modal-content">
-                <div class="modal-header">
-                    <h5 class="modal-title" id="modal-title" v-if="showHeader">
+                <div class="modal-header" v-show="showHeader">
+                    <h5 class="modal-title" id="modal-title" >
                         <slot name="title"></slot>
                     </h5>
                     <button type="button" class="close" data-dismiss="modal" aria-label="Close">
@@ -27,27 +27,38 @@
 <script>
 	export default {
 		props: {
-			header: {
+			footer: {
 				default: true
             },
-            footer: {
-				default: true
+            name:{},
+			submit:{
+				default:false,
             },
-            button: {
-				default: true
-            },
-            name:{}
+			cancel:{
+				default:false,
+            }
         },
         data: function(){
 			return {
 				showFooter: this.footer,
-                showHeader: this.header,
-				showButton: this.button,
-                id: this.name
-
+				id: this.name
 			};
         },
-		created() {        },
+		created() {
+        	if(this.$slots.title) {
+
+//				console.log(this.$slots.title);
+			}else{
+
+//				console.log('title not defined');
+            }
+        },
+		computed: {
+        	showHeader:function(){
+				return !!this.$slots.title;
+            },
+
+        },
         methods:{
         	send: function(){
 				console.log('hello world');

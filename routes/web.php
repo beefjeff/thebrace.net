@@ -12,12 +12,14 @@
 */
 
 Route::get('/', function () {
+
 	return redirect('resume');
 });
 Route::get('blog', function(){
 	return view('blog');
 })->name('blog');
 Route::get('resume', function(){
+	Session::flash('hello');
 	return view('resume');
 })->name('resume');
 Route::resource('messages', 'MessageController');

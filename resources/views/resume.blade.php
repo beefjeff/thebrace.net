@@ -1,9 +1,6 @@
 @extends('layouts.master')
 
 @section('content')
-	<modal name="message-modal">
-		my modal
-	</modal>
 	<div class=" row" id="resume">
 		<div class="bg-dark row" id="resume-sidebar">
 			<div class="col">
@@ -53,6 +50,14 @@
 						</ul>
 						<li>C#</li>
 						<li>C++</li>
+						<li>Java</li>
+						<li>SOLID Principles</li>
+						<li>Package Management</li>
+						<ul>
+							<li>Composer</li>
+							<li>NPM</li>
+
+						</ul>
 					</ul>
 				</div>
 				<div class="col">
@@ -61,7 +66,7 @@
 						<li>Ubuntu Server</li>
 						<li>VPS Experience</li>
 						<li>Nginx + Apache</li>
-						<li>SSL ( letsencrypt )</li>
+						<li>SSL (letsencrypt)</li>
 						<li>SSH</li>
 						<li>Cron</li>
 					</ul>
@@ -79,16 +84,11 @@
 					<ul>
 						<li>Vim</li>
 						<li>PhpStorm</li>
-						<li>Composer + npm</li>
 					</ul>
 
 				</div>
 			</div>
 
-			{{--<h2>Experience</h2>--}}
-			{{--<div  class="container">--}}
-
-			{{--</div>--}}
 			<h2>Education</h2>
 			<hr>
 			<div class="row">
@@ -137,4 +137,20 @@
 {{--//			});--}}
 		{{--</script>--}}
 	</div>
+
+	<modal name="message-modal" footer="false" submit="true" cancel="true">
+		<template slot="title">Message Me</template>
+		<form method="post" action="{{route('messages.store')}}"> {{ csrf_field() }}
+			<div class="form-group">
+				<label for="name">Name:</label>
+				<input name="name" id="message-name">
+				<label for="email">Email:</label>
+				<input name="email" id="message-email"  type="email">
+			</div>
+			<label for="message">Message:</label>
+			<textarea name="message" id="message-message"></textarea>
+			<button @click="sendMessage">Send</button>
+			<button>Cancel</button>
+		</form>
+	</modal>
 @endsection

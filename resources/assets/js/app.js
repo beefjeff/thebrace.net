@@ -28,3 +28,6 @@ new Vue({
 window.flash = function (data) {
 	window.events.$emit('flash', data);
 };
+window.close_modal = function (data) {
+	window.events.$emit('close_modal', data);
+};
