@@ -22,9 +22,9 @@
 				<a class="nav-link" href="{{ route('resume') }}">Resume</a>
 			</li>
 
-			<li class="nav-item">
-				<a class="nav-link" href="{{ route('blog') }}">Blog</a>
-			</li>
+			{{--<li class="nav-item">--}}
+				{{--<a class="nav-link" href="{{ route('blog') }}">Blog</a>--}}
+			{{--</li>--}}
 			<li class="nav-item">
 				<a class="nav-link" href="http://bracewindows.com">Business</a>
 			</li>
