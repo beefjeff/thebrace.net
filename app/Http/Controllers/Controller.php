@@ -9,29 +9,5 @@ use Illuminate\Foundation\Auth\Access\AuthorizesRequests;
 
 class Controller extends BaseController
 {
-	use AuthorizesRequests, DispatchesJobs, ValidatesRequests;
-
-	public function something(Exception $e){
-			$user = new \App\User;
-
-			$user->isSubscribed();
-
-	}
-
-	public function testing(){
- 		 	dd(new User);	
-	}
-	
-	public function test(){
- 		return true;
-
-	}
-	
-	
-	
-	
-	
-	
-	
-	
+    use AuthorizesRequests, DispatchesJobs, ValidatesRequests;
 }

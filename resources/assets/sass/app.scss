@@ -1,12 +1,14 @@
 // Fonts
 @import url("https://fonts.googleapis.com/css?family=Raleway:300,400,600");
 // Bootstrap
-@import "~bootstrap/scss/bootstrap.scss";
-@import "~bootstrap-vue/dist/bootstrap-vue.css";
+//@import "~bootstrap/scss/bootstrap.scss";
+//@import "~bootstrap-vue/dist/bootstrap-vue.css";
 
 
 // Bulma
-//@import "~bulma";
+@import "~w3-css";
+@import "~bulma/bulma.sass";
+@import "~animate.css";
 
 
 
@@ -22,11 +24,16 @@ body {
   font-family: 'Raleway', sans-serif;
   font-weight: 400;
 }
+nav{
+  z-index:3;
+}
 $footerHeight: 30px;
-$navHeight: 56px;
+$navHeight: 52px;
+$paddingTop: $navHeight+10;
+
 .content {
 
-  padding: $navHeight 0 20px;
+  padding: $paddingTop 0 20px;
   min-height: calc(100vh - 24px);
 
 
@@ -51,27 +58,40 @@ $navHeight: 56px;
       padding:2rem;
     }
   }
-  .col-date{
+  .columns.column{
+    @extend .is-4;
+  }
+  #skills{
+    .column{
+      @extend .is-one-fifth;
+    }
+  }
+  .column-date{
+    @extend .is-2;
     padding-right:15px;
   }
 
 }
 h2{
-  @extend .thead-dark;
+  //@extend .thead-dark;
 }
 #resume-sidebar {
   @extend .hide-scrollbar;
+  @extend .has-text-centered;
+  background-color: #363636;
+  color:white;
+  button{
+    //width:100%;
+  }
+
   @media (max-width: 768px) {
-    margin-bottom:1rem;
+    margin-bottom: 1rem;
     padding-top: 0;
     min-width: 100%;
     max-width: none;
     position: relative;
   }
-  @media (max-width: 259px){
-    padding-top: 40px;
-  }
-  top: 0;
+  top: -10px;
   left: 0;
   padding: 65px 10px 50px;
   bottom: 0;
@@ -81,10 +101,10 @@ h2{
   max-width: 250px;
   //min-width: 200px;
   height: 100%;
-  margin:0;
+  margin: 0;
   #profile-image {
-    text-align:center;
-    display:block;
+    text-align: center;
+    display: block;
     width: 180px;
     margin: 5px auto;
     -webkit-border-radius: 50%;
@@ -99,18 +119,14 @@ h2{
 
 
 .footer {
-  @extend .nav ;
+  background-color: #363636;
   a{
-    @extend .nav-link;
+    //@extend .nav-link;
     padding:0;
 
   }
-  @extend .bg-dark;
-  @extend .text-center;
-  //position: relative;
-  bottom: 0;
-  width: 100%;
-  //height: 25px; /* Set the fixed height of the footer here */
+  //bottom: 0;
+  //width: 100%;
 }
 
 .full-height {
@@ -138,7 +154,6 @@ h2{
 }
 
 input, textarea{
-  @extend .form-control;
   border:1px solid;
   margin-bottom: 5px;
 }
@@ -146,6 +161,16 @@ input, textarea{
   input{
     display: inline-flex;
   }
+}
+.input{
+  border:1px solid gray;
+}
+.modal-card{
+  margin: 75px 0 10px;
+}
+button{
+  @extend .button;
+  border-radius: 0 !important;
 }
 //* {
 //  background: #000 !important;

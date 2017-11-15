@@ -11,17 +11,29 @@
 |
 */
 
-Route::get('/', function () {
+use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Route;
+use Illuminate\Support\Facades\Session;
 
+Route::get('/', function () {
+//	return view('welcome');
 	return redirect('resume');
 });
+
+
+
 Route::get('blog', function(){
 	return view('blog');
 })->name('blog');
 Route::get('resume', function(){
-	Session::flash('hello');
 	return view('resume');
 })->name('resume');
+Route::get('admin', function(){
+	return view('layouts.admin');
+})->middleware('auth');
+
+
+
 Route::resource('messages', 'MessageController');
 Auth::routes();
 Route::get('/home', 'HomeController@index')->name('home');

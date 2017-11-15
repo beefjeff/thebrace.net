@@ -1,61 +1,72 @@
-<nav class="navbar navbar-expand-md navbar-dark bg-dark fixed-top">
-	<a class="navbar-brand align-content-sm-center" href="{{url('/')}}">
-		< Ethan Brace />
-	</a>
-	<button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarsExampleDefault" aria-controls="navbarsExampleDefault" aria-expanded="false" aria-label="Toggle navigation">
-		<span class="navbar-toggler-icon"></span>
-	</button>
+<nav class="navbar is-dark is-fixed-top">
+	<div class="navbar-brand">
+		<a class="navbar-item" href="{{route('resume')}}">{{'<Ethan Brace/>'}}</a>
+		<div class="navbar-burger burger" data-target="navbarExampleTransparentExample">
+			<span></span>
+			<span></span>
+			<span></span>
+		</div>
+	</div>
 
-	<div class="collapse navbar-collapse" id="navbarsExampleDefault">
-		<ul class="navbar-nav mr-auto">
+	<div id="navbarExampleTransparentExample" class="navbar-menu">
+		<div class="navbar-start">
 			@auth
-				<li class="nav-item">
-					<a class="nav-link" href="{{ route('home') }}">Home <span class="sr-only">(current)</span></a>
-				</li>
-
-				{{--<li class="nav-item">--}}
-					{{--<a class="nav-link" href="{{ route('register') }}">Register New User</a>--}}
-				{{--</li>--}}
-				\|/
+				<a class="navbar-item" href="{{url('/admin')}}">Admin</a>
 			@endauth
-			<li class="nav-item">
-				<a class="nav-link" href="{{ route('resume') }}">Resume</a>
-			</li>
+			<a class="navbar-item" href="{{route('resume')}}">Resume</a>
+			<a class="navbar-item" href="https://github.com/beefjeff">Github</a>
+			{{--<div class="navbar-item has-dropdown is-hoverable">--}}
+				{{--<a class="navbar-link" href="#">--}}
+					{{--Docs--}}
+				{{--</a>--}}
+				{{--<div class="navbar-dropdown is-boxed">--}}
+					{{--<a class="navbar-item" href="/documentation/overview/start/">--}}
+						{{--Overview--}}
+					{{--</a>--}}
+					{{--<a class="navbar-item" href="https://bulma.io/documentation/modifiers/syntax/">--}}
+						{{--Modifiers--}}
+					{{--</a>--}}
+					{{--<a class="navbar-item" href="https://bulma.io/documentation/columns/basics/">--}}
+						{{--Columns--}}
+					{{--</a>--}}
+					{{--<a class="navbar-item" href="https://bulma.io/documentation/layout/container/">--}}
+						{{--Layout--}}
+					{{--</a>--}}
+					{{--<a class="navbar-item" href="https://bulma.io/documentation/form/general/">--}}
+						{{--Form--}}
+					{{--</a>--}}
+					{{--<hr class="navbar-divider">--}}
+					{{--<a class="navbar-item" href="https://bulma.io/documentation/elements/box/">--}}
+						{{--Elements--}}
+					{{--</a>--}}
+					{{--<a class="navbar-item is-active" href="https://bulma.io/documentation/components/breadcrumb/">--}}
+						{{--Components--}}
+					{{--</a>--}}
+				{{--</div>--}}
+			{{--</div>--}}
+		</div>
 
-			{{--<li class="nav-item">--}}
-				{{--<a class="nav-link" href="{{ route('blog') }}">Blog</a>--}}
-			{{--</li>--}}
-			<li class="nav-item">
-				<a class="nav-link" href="http://bracewindows.com">Business</a>
-			</li>
-			<li class="nav-item">
-				<a class="nav-link" href="http://github.com/beefjeff">Github</a>
-			</li>
-		</ul>
-		<ul class="navbar-nav">
-
-			@auth
-				<li class="dropdown nav-item">
-					<a href="#" class="nav-link" data-toggle="dropdown" role="button" aria-expanded="false">
-						{{ Auth::user()->name }} <span class="caret"></span>
-					</a>
-
-					<ul class="dropdown-menu dropdown-menu-right bg-dark" role="menu">
-						<li class="nav-item">
-							<a class="nav-link" href="{{ route('logout') }}" onclick="event.preventDefault(); document.getElementById('logout-form').submit();">
-								Logout
-							</a>
-							<form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
-								{{ csrf_field() }}
-							</form>
-						</li>
-					</ul>
-				</li>
-			@endauth
-		</ul>
+		<div class="navbar-end">
+			{{--<div class="navbar-item">--}}
+				{{--<div class="field is-grouped">--}}
+					{{--<p class="control">--}}
+						{{--<a class="bd-tw-button button" data-social-network="Twitter" data-social-action="tweet" data-social-target="http://localhost:4000" target="_blank" href="https://twitter.com/intent/tweet?text=Bulma: a modern CSS framework based on Flexbox&amp;hashtags=bulmaio&amp;url=http://localhost:4000&amp;via=jgthms">--}}
+							{{--<span class="icon">--}}
+								{{--<i class="fa fa-twitter"></i>--}}
+							{{--</span>--}}
+							{{--<span>Tweet</span>--}}
+						{{--</a>--}}
+					{{--</p>--}}
+					{{--<p class="control">--}}
+						{{--<a class="button is-primary" href="https://github.com/jgthms/bulma/archive/0.5.1.zip">--}}
+							{{--<span class="icon">--}}
+								{{--<i class="fa fa-download"></i>--}}
+							{{--</span>--}}
+							{{--<span>Download</span>--}}
+						{{--</a>--}}
+					{{--</p>--}}
+				{{--</div>--}}
+			{{--</div>--}}
+		</div>
 	</div>
 </nav>
-
-{{--<div style="height:56px">--}}
-	{{--banner spacing on page--}}
-{{--</div>--}}

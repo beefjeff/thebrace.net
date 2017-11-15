@@ -4,23 +4,26 @@ namespace App\Http\Controllers;
 
 use App\Message;
 use Illuminate\Http\Request;
-use Illuminate\Support\Facades\View;
-use Laracasts\Flash\Flash;
+use Illuminate\Support\Facades\Session;
 
 class MessageController extends Controller
 {
 	public function __construct(){
-		$this->middleware(['auth']);
+		$this->middleware('auth', ['except'=>'store']);
 	}
-    /**
+
+	/**
      * Display a listing of the resource.
      *
      * @return \Illuminate\Http\Response
      */
     public function index()
     {
-        $messages = Message::all();
-		return view('messages.index', compact('messages'));
+
+		$messages = Message::all();
+//		return view('messages.index', compact('messages'));
+		return response($messages);
+
     }
 
     /**
@@ -41,8 +44,12 @@ class MessageController extends Controller
      */
     public function store(Request $request)
     {
-		flash('Your message was saved');
-//		return redirect('resume');
+		$msg = new Message;
+		$msg->name = $request->name;
+		$msg->email = $request->email;
+		$msg->message = $request->message;
+		$msg->save();
+		return response("Message Saved", 200);
     }
 
     /**
@@ -87,6 +94,7 @@ class MessageController extends Controller
      */
     public function destroy(Message $message)
     {
-        //
+		$message->delete();
+		return response('Message Deleted');
     }
 }

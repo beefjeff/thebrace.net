@@ -1,21 +1,20 @@
 import vue from "vue";
-import BootstrapVue from 'bootstrap-vue';
-import VueRouter from 'vue-router';
+// import BootstrapVue from 'bootstrap-vue';
+// import VueRouter from 'vue-router';
 import lodash from "lodash";
-import VeeValidate from 'vee-validate';
+// import VeeValidate from 'vee-validate';
 
 window.Vue = vue;
 window._ = lodash;
-Vue.use(VeeValidate);
-Vue.use(VueRouter);
-Vue.use(BootstrapVue);
-window.events = new Vue();
+// Vue.use(VeeValidate);
+// Vue.use(VueRouter);
+// Vue.use(vueFocus);
 
 try {
 	window.$ = window.jQuery = require('jquery');
-	window.Popper = window.jQuery = require('popper.js');
+	// window.Popper = window.jQuery = require('popper.js');
 
-	require('bootstrap');
+	// require('bootstrap');
 } catch (e) {
 }
 window.axios = require('axios');

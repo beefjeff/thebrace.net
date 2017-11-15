@@ -36,8 +36,7 @@ class RegisterController extends Controller
      */
     public function __construct()
     {
-//todo                     change to 'guest' to allow others to register
-        $this->middleware('auth');
+        $this->middleware('guest');
     }
 
     /**

@@ -11,7 +11,7 @@ class MessageTableSeeder extends Seeder
      */
     public function run()
     {
-		factory(App\Message::class, 10)->create();
-
+        //
+		factory(\App\Message::class, 20)->create();
     }
 }

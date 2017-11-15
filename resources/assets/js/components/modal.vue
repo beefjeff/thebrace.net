@@ -1,25 +1,16 @@
 <template>
-    <div class="modal fade" :id="id" tabindex="-1" role="dialog" aria-labelledby="modal-title" aria-hidden="true">
-        <div class="modal-dialog" role="document">
-            <div class="modal-content">
-                <div class="modal-header" v-show="showHeader">
-                    <h5 class="modal-title" id="modal-title" >
-                        <slot name="title"></slot>
-                    </h5>
-                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                        <span aria-hidden="true">&times;</span>
-                    </button>
-                </div>
-                <div class="modal-body">
-                    <slot></slot>
-                </div>
-
-                <div class="modal-footer" v-if="showFooter">
-                    <slot name="footer">
-                        <button type="button" class="btn btn-secondary" data-dismiss="modal">Ok</button>
-                    </slot>
-                </div>
-            </div>
+    <div class="modal " :class="show" :id="modal_name">
+        <div class="modal-background" @click="close"></div>
+        <div class="modal-card">
+            <header class="modal-card-head" v-if="showHeader">
+                <p class="modal-card-title">{{title}}</p>
+                <button class="delete" aria-label="close" @click="close"></button>
+            </header>
+            <section class="modal-card-body"><slot></slot></section>
+            <footer class="modal-card-foot" v-if="showFooter">
+                <button class="button is-success">Save changes</button>
+                <button class="button" @click="close">Cancel</button>
+            </footer>
         </div>
     </div>
 </template>
@@ -27,9 +18,6 @@
 <script>
 	export default {
 		props: {
-			footer: {
-				default: true
-            },
             name:{},
 			submit:{
 				default:false,
@@ -40,46 +28,64 @@
         },
         data: function(){
 			return {
-				showFooter: this.footer,
-				id: this.name
+				modal_name: this.name,
+                active:false
 			};
         },
 		created() {
-        	if(this.$slots.title) {
 
-//				console.log(this.$slots.title);
-			}else{
-
-//				console.log('title not defined');
-            }
+			window.events.$on(
+				'show-'+this.name, ()=>{
+					this.open();
+                }
+			);
+			window.events.$on(
+				'close-'+this.name, ()=>{
+					this.close();
+				}
+			);
         },
 		computed: {
         	showHeader:function(){
 				return !!this.$slots.title;
             },
+			showFooter:function(){
+				return !!this.$slots.footer;
+			},
+
+            show:function(){
+				if(this.active) {
+					return 'is-active';
+				}
+            },
+            title:function(){
+            	return _.startCase(this.modal_name);
+            }
 
         },
         methods:{
-        	send: function(){
-				console.log('hello world');
-				console.log(this.handle);
+            open(){
+				this.active = true;
+				console.log('showing ' + this.modal_name + ' modal');
+				// auto focus
+				let input = $('#' + this.modal_name).find('input:first');
+				Vue.nextTick(function(){
+					//todo blog this
+					input.focus();
+                });
             },
-            show(){
-				$('#'+this.id).modal('show');
-
-            },
-            hide(){
-				$('#'+this.id).modal('hide');
+            close(){
+                this.active = false;
             }
+        },
+        ready(){
+			$('#' + this.modal_name).addClass('is-active');
         }
 	};
 </script>
 <style>
-    /*#modal, #modal-dialog{*/
-        /*position: fixed;*/
-    /*}*/
-    /*#modal-dialog {*/
-        /*z-index: 1;*/
-
-    /*}*/
+    .modal{
+        -webkit-animation-duration: .6s; /* Safari 4.0 - 8.0 */
+        animation-duration: .6s;
+    }
 </style>

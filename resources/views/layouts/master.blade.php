@@ -16,12 +16,12 @@
 </head>
 <body>
 	<div id="app">
-		<flash message="{{ session('flash') }}"></flash>
 		@include('partials.nav')
 		<div class="content">
 			@yield('content')
 		</div>
 		@include('partials.footer')
+		<flash message="{{ session('flash') }}"></flash>
 	</div>
 
 	<script src="{{ asset('js/app.js') }}"></script>
