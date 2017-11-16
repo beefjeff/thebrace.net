@@ -2,11 +2,16 @@ import VueRouter from 'vue-router';
 
 let routes = [
 	{
-		path: '/',
+		path: '/admin',
+		component: require('./views/adminPage.vue')
+	},
+	{
+		path: '/admin/messages',
+		component:require('./components/messages.vue')
 
-		component: require('./views/Home.vue')
 	}
 ];
 export default new VueRouter({
-	routes
+	routes,
+	mode:'history'
 });

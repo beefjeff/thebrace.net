@@ -17,7 +17,7 @@
 <body>
 	<div id="app">
 		@include('partials.nav')
-		<div class="content">
+		<div id="main-content">
 			@yield('content')
 		</div>
 		@include('partials.footer')

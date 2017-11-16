@@ -1,7 +1,12 @@
 require('./bootstrap');
-// import router from './routes';
+import router from './routes';
 import vueFocus from "vue-focus";
-
+/**
+ * Uncomment below when compiling to production
+ */
+Vue.config.devtools = false
+Vue.config.debug = false
+Vue.config.silent = true
 
 
 window.events = new Vue();
@@ -17,7 +22,7 @@ Vue.component('admin-sidebar', require('./components/adminSidebar.vue'));
 
 new Vue({
 	el: '#app',
-	// router,
+	router,
 
 	methods: {
 		showModal: function(modal_name){

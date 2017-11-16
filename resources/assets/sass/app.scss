@@ -15,6 +15,10 @@
 html, body{
   height: 100vh;
 }
+#app {
+  width: 100%;
+
+}
 .modal-content{
   padding: 10px;
 }
@@ -31,13 +35,16 @@ $footerHeight: 30px;
 $navHeight: 52px;
 $paddingTop: $navHeight+10;
 
-.content {
-
-  padding: $paddingTop 0 20px;
+#main-content {
+  margin-top: $navHeight;
+  padding: 10px 0 20px;
   min-height: calc(100vh - 24px);
 
 
 
+}
+.page{
+  margin: $paddingTop 0 20px;
 }
 .hide-scrollbar{
 
@@ -78,19 +85,11 @@ h2{
 #resume-sidebar {
   @extend .hide-scrollbar;
   @extend .has-text-centered;
+
+
+
   background-color: #363636;
   color:white;
-  button{
-    //width:100%;
-  }
-
-  @media (max-width: 768px) {
-    margin-bottom: 1rem;
-    padding-top: 0;
-    min-width: 100%;
-    max-width: none;
-    position: relative;
-  }
   top: -10px;
   left: 0;
   padding: 65px 10px 50px;
@@ -99,9 +98,8 @@ h2{
   position: fixed;
   overflow-y: scroll;
   max-width: 250px;
-  //min-width: 200px;
   height: 100%;
-  margin: 0;
+  margin: 5px 0 0;
   #profile-image {
     text-align: center;
     display: block;
@@ -111,9 +109,49 @@ h2{
     -moz-border-radius: 50%;
     border-radius: 50%;
   }
-  .btn {
-    margin-top: 5px;
-    width: 100%;
+  @media (max-width: 768px) {
+    margin-bottom: 1rem;
+    padding-top: 0;
+    min-width: 100%;
+    max-width: none;
+    position: relative;
+  }
+}
+
+
+
+#admin-view {
+  display: flex;
+  margin-left: 165px;
+  //width: 100%;
+}
+#admin-sidebar{
+  @extend .hide-scrollbar;
+  overflow-y: scroll;
+  left: 0;
+  bottom: -50px;
+  height:100%;
+  width:150px;
+  position: fixed;
+  background-color: #363636;
+  //z-index:0;
+
+  .router-link-active{
+    @extend .is-link;
+  }
+  ul {
+    width:100%;
+    list-style-type: none;
+    margin:0;
+    li{
+      padding:0;
+    }
+    a {
+      @extend .button;
+      width: 100%;
+    }
+
+
   }
 }
 
@@ -168,9 +206,12 @@ input, textarea{
 .modal-card{
   margin: 75px 0 10px;
 }
+.button{
+
+  border-radius: 0 !important;
+}
 button{
   @extend .button;
-  border-radius: 0 !important;
 }
 //* {
 //  background: #000 !important;

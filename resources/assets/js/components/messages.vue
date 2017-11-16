@@ -1,5 +1,5 @@
 <template>
-    <div class="container">
+    <div id="messages">
         <div v-show="noMessages" class="w3-padding card"><span>No messages yet...</span></div>
         <div v-show="!noMessages" :id="'message-'+message.id" class="message" v-for="message in messages">
             <div class="message-header is-dark">
@@ -45,8 +45,13 @@
 			},
 			getMessages:function(){
 				let vm = this;
-				axios.get('messages')
+				axios({
+                    method:'get',
+                    url:'/messages',
+                    responseType:'application/json'
+                })
 					.then(function (res) {
+						console.log(res.data);
 						vm.messages = res.data;
 					});
 
@@ -62,3 +67,8 @@
         }
 	}
 </script>
+<style>
+    #messages{
+        /*width:300px ;*/
+    }
+</style>

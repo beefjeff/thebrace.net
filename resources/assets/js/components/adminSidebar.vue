@@ -1,7 +1,11 @@
 <template>
-    <div id="admin-sidebar">
+    <div id="admin-sidebar" class="navbar">
         <ul>
-            <li @click="view_messages = true">messages</li>
+            <li class="navbar-item">
+                <router-link class="" to="/admin/messages">Messages</router-link>
+            </li>
+            <!--<router-link to="/admin/messages"></router-link>-->
+            <!--<li @click="view_messages = true">messages</li>-->
         </ul>
     </div>
 </template>
@@ -15,15 +19,3 @@
         }
 	}
 </script>
-<style>
-   #admin-sidebar{
-       top:-10px;
-       left: 0;
-       bottom: -50px;
-       height:100%;
-       width:300px;
-       padding-right: 35px;
-       position: fixed;
-       background-color: #363636;
-   }
-</style>

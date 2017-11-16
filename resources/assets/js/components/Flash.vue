@@ -1,6 +1,6 @@
 <template>
     <div v-show="show">
-        <article class="alert-flash message is-small" :class="message_type_class">
+        <article class="alert-flash message is-small animated bounceInDown " :class="message_type_class">
             <div class="message-header" v-if="hasHeader">
                 <p>{{ title }}</p>
                 <button class="delete is-small" aria-label="delete"></button>
@@ -16,6 +16,9 @@
 
 		data() {
 			return {
+				instance:{
+
+                },
 				title:'',
 				body: '',
 				show: false,
@@ -57,7 +60,7 @@
 <style>
     .alert-flash {
         position: fixed;
-        right: 25px;
+        left: 25px;
         bottom: 25px;
         max-width:300px;
         z-index:3;
