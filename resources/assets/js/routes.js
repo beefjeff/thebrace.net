@@ -7,7 +7,12 @@ let routes = [
 	},
 	{
 		path: '/admin/messages',
-		component:require('./components/messages.vue')
+		component:require('./views/messages.vue')
+
+	},
+	{
+		path: '/admin/newPost',
+		component:require('./views/newPost.vue')
 
 	}
 ];

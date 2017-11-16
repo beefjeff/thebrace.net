@@ -12,15 +12,12 @@
 					<small>
 						My desire as a software developer is to
 						create intuitive and elegant applications that solve a problem.
-						I aim to do so with a <i>beautiful</i> and highly <i>maintainable</i> codebase.
-						<br><br>
-						I have a high attention to detail, am eager to learn.<br>
+						I aim to do so with a <i>beautiful</i> and highly <i>maintainable</i> codebase. <hr>
+						If you're looking for someone to add to your team, I am currently looking! If you're looking for a motivated,
+						self-disciplied, highly focused and enthusiatic programmer, I would be excited to speak with you! <br><br>
 					</small>
-					<strong>
-						If you're looking for an addition to your team, I would be glad to speak with you.
-					</strong>
-
-				</div>
+						Leave a message and I'll get back to you as soon as possible.
+				</div><hr>
 				<show-modal name="message-me" class="animated infinite pulse">Message Me</show-modal>
 			</div>
 		</div>

@@ -1,11 +1,11 @@
 import vue from "vue";
-// import BootstrapVue from 'bootstrap-vue';
 import VueRouter from 'vue-router';
 import lodash from "lodash";
-// import VeeValidate from 'vee-validate';
+import moment from 'moment';
 
 window.Vue = vue;
 window._ = lodash;
+window.moment = moment;
 // Vue.use(VeeValidate);
 Vue.use(VueRouter);
 // Vue.use(vueFocus);

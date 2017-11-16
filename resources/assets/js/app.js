@@ -1,12 +1,18 @@
 require('./bootstrap');
 import router from './routes';
-import vueFocus from "vue-focus";
 /**
  * Uncomment below when compiling to production
  */
-Vue.config.devtools = false
-Vue.config.debug = false
-Vue.config.silent = true
+if (process.env.MIX_APP_ENV === 'production') {
+	Vue.config.devtools = false;
+	Vue.config.debug = false;
+	Vue.config.silent = true;
+	console.log('setting Vue config to production');
+}else{
+
+	console.log('setting Vue config to dev');
+}
+
 
 
 window.events = new Vue();
@@ -17,8 +23,12 @@ Vue.component('v-input', require('./components/v-input.vue'));
 Vue.component('v-textarea', require('./components/v-textarea.vue'));
 Vue.component('show-modal', require('./components/showModal.vue'));
 Vue.component('admin-page', require('./views/adminPage.vue'));
-Vue.component('messages', require('./components/messages.vue'));
+Vue.component('messages', require('./views/messages.vue'));
 Vue.component('admin-sidebar', require('./components/adminSidebar.vue'));
+Vue.component('newPost', require('./views/newPost.vue'));
+Vue.component('post', require('./components/Post.vue'));
+
+
 
 new Vue({
 	el: '#app',
@@ -43,6 +53,9 @@ new Vue({
 					console.log(response);
 				});
 			console.log('sending...');
+		},
+		moment: function(date){
+			return moment(date);
 		}
 	},
 

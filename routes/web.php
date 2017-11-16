@@ -12,6 +12,7 @@
 */
 
 use App\Messages;
+use App\Post;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
 use Illuminate\Support\Facades\Session;
@@ -24,8 +25,10 @@ Route::get('/', function () {
 
 
 Route::get('blog', function(){
-	return view('blog');
+	$posts = Post::with('user')->get();
+	return view('blog', compact('posts'));
 })->name('blog');
+
 Route::get('resume', function(){
 	return view('resume');
 })->name('resume');
@@ -38,6 +41,7 @@ Route::get('admin', function(){
 
 
 Route::resource('messages', 'MessagesController');
+Route::resource('posts', 'PostController');
 Auth::routes();
 Route::get('/home', 'HomeController@index')->name('home');
 Route::get('/{catchall?}', function () {

@@ -14,6 +14,7 @@
 				<a class="navbar-item" href="{{url('/admin')}}">Admin</a>
 			@endauth
 			<a class="navbar-item" href="{{route('resume')}}">Resume</a>
+			<a class="navbar-item" href="{{route('blog')}}">Musings..</a>
 			<a class="navbar-item" href="https://github.com/beefjeff">Github</a>
 			{{--<div class="navbar-item has-dropdown is-hoverable">--}}
 				{{--<a class="navbar-link" href="#">--}}

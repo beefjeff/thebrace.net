@@ -33,7 +33,7 @@
         watch:{
         	'internalValue':function(){
 				this.$emit('input', this.internalValue);
-            }
+            },
         }
 	};
 </script>
