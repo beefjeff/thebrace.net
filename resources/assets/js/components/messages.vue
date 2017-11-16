@@ -67,8 +67,3 @@
         }
 	}
 </script>
-<style>
-    #messages{
-        /*width:300px ;*/
-    }
-</style>

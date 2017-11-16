@@ -6,14 +6,16 @@
 
 
 // Bulma
-@import "~w3-css";
+$family-primary: 'Raleway', sans-serif;
+@import "~w3-css/4/w3pro.css";
 @import "~bulma/bulma.sass";
 @import "~animate.css";
 
 
-
-html, body{
+html, body {
   height: 100vh;
+  font-family: $family-primary;
+
 }
 #app {
   width: 100%;
@@ -42,9 +44,6 @@ $paddingTop: $navHeight+10;
 
 
 
-}
-.page{
-  margin: $paddingTop 0 20px;
 }
 .hide-scrollbar{
 
@@ -141,7 +140,7 @@ h2{
   }
   ul {
     width:100%;
-    list-style-type: none;
+    list-style: none;
     margin:0;
     li{
       padding:0;
@@ -158,13 +157,6 @@ h2{
 
 .footer {
   background-color: #363636;
-  a{
-    //@extend .nav-link;
-    padding:0;
-
-  }
-  //bottom: 0;
-  //width: 100%;
 }
 
 .full-height {

@@ -18,13 +18,11 @@
         "jquery": "^3.2",
         "laravel-mix": "^1.0",
         "lodash": "^4.17.4",
-        "popper": "^1.0.0",
         "vue": "^2.1.10"
     },
     "dependencies": {
         "animate.css": "daneden/animate.css",
         "vue-flash": "^2.1.1",
-        "vue-focus": "^2.1.0",
         "vue-router": "^3.0.1",
         "w3-css": "^4.0.4"
     }
