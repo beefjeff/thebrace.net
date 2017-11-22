@@ -6,15 +6,17 @@
 
 
 // Bulma
-$family-primary: 'Raleway', sans-serif;
-@import "~w3-css/4/w3pro.css";
 @import "~bulma/bulma.sass";
-@import "~animate.css";
 
+@import "variables";
+@import "~w3-css/4/w3pro.css";
+@import "~animate.css";
+@import "./defaults";
+@import "~toastr/toastr.scss";
 
 html, body {
   height: 100vh;
-  font-family: $family-primary;
+  //font-family: $family-primary;
 
 }
 #app {
@@ -45,6 +47,18 @@ $paddingTop: $navHeight+10;
 
 
 }
+#navMenu{
+  background-color: transparent;
+  a{
+    color:white;
+  }
+  &.is-active{
+    a{
+      margin:0 auto;
+    }
+    @extend .has-text-centered;
+  }
+}
 .hide-scrollbar{
 
   -ms-overflow-style: none;  // IE 10+
@@ -64,12 +78,14 @@ $paddingTop: $navHeight+10;
       padding:2rem;
     }
   }
-  .columns.column{
+  .columns.column {
     @extend .is-4;
+    //@extend .is-one-third-tablet;
+
   }
   #skills{
     .column{
-      @extend .is-one-fifth;
+      @extend .is-one-third;
     }
   }
   .column-date{
@@ -98,7 +114,7 @@ h2{
   overflow-y: scroll;
   max-width: 250px;
   height: 100%;
-  margin: 5px 0 0;
+  margin: 0;
   #profile-image {
     text-align: center;
     display: block;
@@ -109,11 +125,24 @@ h2{
     border-radius: 50%;
   }
   @media (max-width: 768px) {
+    display: flex;
+    #sidebar-summary{
+      width:240px;
+    }
+    #sidebar-pic{
+      width:50%;
+    }
     margin-bottom: 1rem;
     padding-top: 0;
     min-width: 100%;
     max-width: none;
     position: relative;
+  }
+  @media (max-width: 500px) {
+    flex-direction:column;
+    *{
+      margin:0 auto;
+    }
   }
 }
 
@@ -207,6 +236,16 @@ input, textarea{
 }
 button{
   @extend .button;
+}
+textarea.input{
+  height:100px;
+}
+
+#toast-container > div {
+
+  -moz-border-radius: 0px;
+  -webkit-border-radius: 0px;
+  border-radius: 0px;
 }
 //* {
 //  background: #000 !important;

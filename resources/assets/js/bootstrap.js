@@ -2,10 +2,15 @@ import vue from "vue";
 import VueRouter from 'vue-router';
 import lodash from "lodash";
 import moment from 'moment';
+import toastr from 'toastr';
+import ace from 'ace-builds/src-noconflict/ace.js';
 
+window.ace = ace;
+window.toastr = toastr;
 window.Vue = vue;
 window._ = lodash;
 window.moment = moment;
+
 // Vue.use(VeeValidate);
 Vue.use(VueRouter);
 // Vue.use(vueFocus);

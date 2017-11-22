@@ -2,6 +2,7 @@
 
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
+//use \App\Http\Controllers\UsersController;
 
 /*
 |--------------------------------------------------------------------------
@@ -13,7 +14,16 @@ use Illuminate\Support\Facades\Route;
 | is assigned the "api" middleware group. Enjoy building your API!
 |
 */
+$middleware = 'auth:api';
+//Route::get('/user', function (Request $request) {
+//	return $request->user();
+//})->middleware($middleware);
+Route::get('user', 'UsersController@show')->middleware($middleware);
+Route::put('user', 'UsersController@update')->middleware($middleware);
 
-Route::middleware('auth:api')->get('/user', function (Request $request) {
-    return $request->user();
-});
+Route::get('resume', 'ResumeController@show')->middleware($middleware);
+Route::put('resume', 'ResumeController@update')->middleware($middleware);
+Route::post('resume', 'ResumeController@store')->middleware($middleware);
+//Route::middleware($middleware)->put('/user/{user}', function (Request $request) {
+//
+//});

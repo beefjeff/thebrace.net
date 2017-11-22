@@ -11,6 +11,7 @@
 </template>
 
 <script>
+    import toastr from 'toastr';
 	export default {
 		props:{} ,
 
@@ -59,10 +60,12 @@
 
 <style>
     .alert-flash {
+        box-shadow: 0 20px 26px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+
         position: fixed;
         left: 25px;
         bottom: 25px;
-        max-width:300px;
-        z-index:3;
+        max-width: 300px;
+        z-index: 3;
     }
 </style>

@@ -1,9 +1,10 @@
-@servers(['web' => 'thebrace.net'])
+@servers(['web' => 'braceyourself.solutions'])
 
 <?php
-$repo = '/var/git/thebrace.net.git';
-$release_dir = '/var/www/releases';
-$app_dir = '/var/www/thebrace.net';
+	$site_name = 'ethan.braceyourself.solutions'
+$repo = "/var/git/$site_name.git";
+$app_dir = "/var/www/$site_name";
+$release_dir = "/var/www/releases/$site_name";
 $release = date('Y/M/d/H:i.s');
 $release_str = ''.$release;
 

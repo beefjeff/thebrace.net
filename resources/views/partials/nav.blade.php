@@ -1,20 +1,20 @@
-<nav class="navbar is-dark is-fixed-top">
+<nav class="navbar is-dark is-fixed-top animated ">
 	<div class="navbar-brand">
 		<a class="navbar-item" href="{{route('resume')}}">{{'<Ethan Brace/>'}}</a>
-		<div class="navbar-burger burger" data-target="navbarExampleTransparentExample">
+		<div id="nav-burger" class="navbar-burger burger" @click="toggleNavMenu">
 			<span></span>
 			<span></span>
 			<span></span>
 		</div>
 	</div>
 
-	<div id="navbarExampleTransparentExample" class="navbar-menu">
-		<div class="navbar-start">
+	<div id="navMenu" class="navbar-menu">
+		<div  class="navbar-start">
 			@auth
-				<a class="navbar-item" href="{{url('/admin')}}">Admin</a>
+				<a class="navbar-item is-primary" href="{{url('/admin/messages')}}">Admin</a>
 			@endauth
 			<a class="navbar-item" href="{{route('resume')}}">Resume</a>
-			<a class="navbar-item" href="{{route('blog')}}">Musings..</a>
+			<a class="navbar-item" href="{{route('blog')}}">musings..</a>
 			<a class="navbar-item" href="https://github.com/beefjeff">Github</a>
 			{{--<div class="navbar-item has-dropdown is-hoverable">--}}
 				{{--<a class="navbar-link" href="#">--}}

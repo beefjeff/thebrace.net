@@ -2,21 +2,23 @@
 
 @section('content')
 	<div class="" id="resume">
-		<div class="is-dark" id="resume-sidebar">
-			<div class="">
+		<div class="is-dark " id="resume-sidebar">
+			<div class="" id="sidebar-pic">
 				<img id="profile-image"  src="{{ asset('images/profile.jpg') }}"  alt="Ethan Brace">
 			</div>
-			<div class="">
+			<div class="" id="sidebar-summary">
 				<hr class="d-none d-md-block">
 				<div class="text-light text-center" id="summary">
-					<small>
-						My desire as a software developer is to
-						create intuitive and elegant applications that solve a problem.
-						I aim to do so with a <i>beautiful</i> and highly <i>maintainable</i> codebase. <hr>
-						If you're looking for someone to add to your team, I am currently looking! If you're looking for a motivated,
-						self-disciplied, highly focused and enthusiatic programmer, I would be excited to speak with you! <br><br>
-					</small>
-						Leave a message and I'll get back to you as soon as possible.
+					<vue-markdown>{{$resume->pluck('summary')[0]}}</vue-markdown>
+
+					{{--<small>--}}
+						{{--My desire as a software developer is to--}}
+						{{--create intuitive and elegant applications that solve a problem.--}}
+						{{--I aim to do so with a <i>beautiful</i> and highly <i>maintainable</i> codebase. <hr>--}}
+						{{--If you're looking for someone to add to your team, I am currently looking! If you're looking for a motivated,--}}
+						{{--self-disciplied, highly focused and enthusiatic programmer, I would be excited to speak with you! <br><br>--}}
+					{{--</small>--}}
+						{{--Leave a message and I'll get back to you as soon as possible.--}}
 				</div><hr>
 				<show-modal name="message-me" class="animated infinite pulse">Message Me</show-modal>
 			</div>
@@ -25,7 +27,7 @@
 			<div id="skills">
 
 				<h2>Skills</h2><hr>
-				<div class="columns">
+				<div class="columns is-tablet">
 					<div class="column">
 						<h4>Programming</h4>
 						<ul>

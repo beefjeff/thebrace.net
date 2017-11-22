@@ -2,7 +2,7 @@
     <div class="field">
         <label :for="id" class="label">{{label}}</label>
         <div class="control">
-            <textarea class="input" :id="id" :type="input_type" v-model="internalValue"></textarea>
+            <textarea :title="label" class="input" :id="id" :type="input_type" v-model="internalValue"></textarea>
         </div>
         <!--<p class="help is-success">This username is available</p>-->
     </div>
@@ -12,6 +12,7 @@
 	export default {
 		props: {
 			name:{},
+			modeling:{},
             type:{
 				default:'text'
             },
@@ -21,10 +22,14 @@
         data(){
 			return {
 				label: _.startCase(this.name),
-                id: this.name,
                 input_type: this.type,
                 internalValue:''
 
+            }
+        },
+        computed:{
+        	id:function(){
+				return this.modeling + '-' + this.name;
             }
         },
 		created: function(){

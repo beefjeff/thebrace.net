@@ -19,6 +19,6 @@ if(mix.inProduction()) {
 		.js('resources/assets/js/app.js', 'public/js')
 		.sass('resources/assets/sass/app.scss', 'public/css')
 		.browserSync({
-			proxy: "http://thebrace.net.test"
+			proxy: "http://ethan.braceyourself.solutions.test"
 		});
 }
